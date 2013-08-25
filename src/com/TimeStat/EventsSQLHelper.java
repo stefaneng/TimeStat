@@ -14,7 +14,7 @@ public class EventsSQLHelper extends SQLiteOpenHelper{
     private static final int DATABASE_VERSION = 1;
     private static final String INSERT_COLUMN_ID = COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT";
     private static final String INSERT_COLUMN_EVENT = COLUMN_EVENT + " TEXT NOT NULL";
-    private static final String INSERT_COLUMN_TIME = COLUMN_TIME + " INTEGER";
+    private static final String INSERT_COLUMN_TIME = COLUMN_TIME + " INTEGER NOT NULL";
 
     private static final String DATABASE_CREATE =
             "CREATE TABLE " + TABLE_EVENTS + "(" +
