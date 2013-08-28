@@ -10,7 +10,8 @@ public class EventsAccess {
     private String[] columns = {
             EventsSQLHelper.COLUMN_ID,
             EventsSQLHelper.COLUMN_EVENT,
-            EventsSQLHelper.COLUMN_TIME
+            EventsSQLHelper.COLUMN_TIME,
+            EventsSQLHelper.COLUMN_TIMESTAMP
     };
 
     public EventsAccess(Context context) {
@@ -23,5 +24,6 @@ public class EventsAccess {
 
     public void close() {
         helper.close();
+        db.close();
     }
 }

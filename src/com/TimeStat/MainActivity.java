@@ -1,14 +1,13 @@
 package com.TimeStat;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,15 +68,32 @@ public class MainActivity extends Activity {
 
     /* Gets called when the user presses the add more activities button */
     public void onClick(View view) {
-        adapter.add("Test Event " + count++);
-        listview.setAdapter(adapter);
 
-        // Toast
-        Context context = getApplicationContext();
-        CharSequence text = "Added Event";
-        int duration = Toast.LENGTH_SHORT;
+        // Have the user enter the name of the event in an AlertDialog
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
+        alert.setTitle("Add a new activity");
+
+        // Set an EditText view to get user input
+        final EditText input = new EditText(this);
+        alert.setView(input);
+
+        alert.setPositiveButton("Enter", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                String value = input.getText().toString();
+
+                // Add the text to the Listview
+                adapter.add(value);
+                listview.setAdapter(adapter);
+            }
+        });
+
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                // Do nothing
+            }
+        });
+
+        alert.show();                                    */
     }
 }

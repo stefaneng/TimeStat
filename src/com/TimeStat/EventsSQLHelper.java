@@ -9,18 +9,25 @@ public class EventsSQLHelper extends SQLiteOpenHelper{
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_EVENT = "event";
     public static final String COLUMN_TIME = "time";
+    public static final String COLUMN_TIMESTAMP = "timestamp";
 
     private static final String DATABASE_NAME = "events.db";
     private static final int DATABASE_VERSION = 1;
     private static final String INSERT_COLUMN_ID = COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT";
     private static final String INSERT_COLUMN_EVENT = COLUMN_EVENT + " TEXT NOT NULL";
+
+    // This is the time spend doing activities
     private static final String INSERT_COLUMN_TIME = COLUMN_TIME + " INTEGER NOT NULL";
+
+    // This is the timestamp of when it was started
+    private static final String INSERT_COLUMN_TIMESTAMP = COLUMN_TIMESTAMP + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP";
 
     private static final String DATABASE_CREATE =
             "CREATE TABLE " + TABLE_EVENTS + "(" +
                     INSERT_COLUMN_ID + ", " +
                     INSERT_COLUMN_EVENT + ", " +
-                    INSERT_COLUMN_TIME + ");";
+                    INSERT_COLUMN_TIME + ", " +
+                    INSERT_COLUMN_TIMESTAMP + ");";
 
     private static final String DATABASE_DELETE =
             "DROP TABLE IF EXISTS " + TABLE_EVENTS;
