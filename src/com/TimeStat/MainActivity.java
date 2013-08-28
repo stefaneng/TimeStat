@@ -94,6 +94,6 @@ public class MainActivity extends Activity {
             }
         });
 
-        alert.show();                                    */
+        alert.show();
     }
 }

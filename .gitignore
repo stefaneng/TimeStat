@@ -79,3 +79,6 @@ local.properties
 
 ### Maven ###
 target/
+
+build-log.xml
+build.log
